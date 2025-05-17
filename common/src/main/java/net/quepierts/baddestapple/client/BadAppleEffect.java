@@ -14,8 +14,6 @@ import net.minecraft.client.renderer.ShaderInstance;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL30;
 
-import java.util.Objects;
-
 public class BadAppleEffect {
     private static RenderTarget tmp;
 
