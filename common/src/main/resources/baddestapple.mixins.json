@@ -9,6 +9,7 @@
     "ClientLevelMixin",
     "GameRendererMixin",
     "LevelRendererMixin",
+    "MinecraftMixin",
     "RenderSystemMixin"
   ],
   "server": [],

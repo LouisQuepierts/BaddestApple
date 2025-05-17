@@ -36,6 +36,8 @@ public class Shaders {
 
     public static final ShaderHolder CELESTIAL;
 
+    public static final ShaderHolder MASK_EFFECT;
+
     private static final List<ShaderHolder> SHADERS;
 
     public static Iterator<ShaderHolder> shaders() {
@@ -66,5 +68,7 @@ public class Shaders {
         POSITION_TEX_COLOR = shader("position_tex_color", DefaultVertexFormat.POSITION_TEX_COLOR);
         PARTICLE = shader("particle", DefaultVertexFormat.PARTICLE);
         CELESTIAL = shader("celestial", DefaultVertexFormat.POSITION_TEX);
+
+        MASK_EFFECT = shader("mask_effect", DefaultVertexFormat.POSITION_TEX);
     }
 }

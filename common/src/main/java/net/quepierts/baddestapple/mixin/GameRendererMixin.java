@@ -1,16 +1,38 @@
 package net.quepierts.baddestapple.mixin;
 
+import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.renderer.ShaderInstance;
+import net.quepierts.baddestapple.client.BadAppleEffect;
 import net.quepierts.baddestapple.client.ClientSettings;
 import net.quepierts.baddestapple.client.Shaders;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(GameRenderer.class)
 public class GameRendererMixin {
+    @Inject(
+            method = "render",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lcom/mojang/blaze3d/pipeline/RenderTarget;bindWrite(Z)V"
+            )
+    )
+    private void baddestapple$postEffectMask(
+            DeltaTracker pDeltaTracker,
+            boolean pRenderLevel,
+            CallbackInfo ci
+    ) {
+        if (!ClientSettings.isEnableBadAppleStyle()) {
+            return;
+        }
+
+        BadAppleEffect.apply();
+    }
+
     @Inject(
             method = "getRendertypeSolidShader",
             at = @At("HEAD"),

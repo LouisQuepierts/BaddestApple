@@ -12,6 +12,8 @@ public final class ClientSettings {
     @Getter @Setter private static boolean terrainWhite = false;
     @Getter @Setter private static boolean skyWhite = false;
 
+    @Getter private static float left = 0.0f;
+
     private static final Random RANDOM = new Random(42);
 
     public static void random() {
@@ -24,5 +26,11 @@ public final class ClientSettings {
         } else if (!entityWhite && !terrainWhite && !skyWhite) {
             terrainWhite = true;
         }
+
+        left = switch (RANDOM.nextInt(3)) {
+            case 0 -> 0.0f;
+            case 1 -> 0.5f;
+            default -> 1.0f;
+        };
     }
 }
