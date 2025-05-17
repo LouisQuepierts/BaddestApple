@@ -13,15 +13,14 @@
     },
     "license": "${license}",
     "icon": "${mod_id}.png",
-    "environment": "*",
+    "environment": "client",
     "entrypoints": {
-        "main": [
+        "client": [
             "net.quepierts.baddestapple.Baddestapple"
         ]
     },
     "mixins": [
-        "${mod_id}.mixins.json",
-        "${mod_id}.fabric.mixins.json"
+        "baddestapple.mixins.json"
     ],
     "depends": {
         "fabricloader": ">=${fabric_loader_version}",
